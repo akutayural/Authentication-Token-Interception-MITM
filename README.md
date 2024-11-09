@@ -45,13 +45,79 @@ auth-token-interception/
 ├── README.md                # Documentation (this file)
 ```
 
-**Setup Instructions**
-Prerequisites
-	•	Python 3.11: Ensure Python 3.11 is installed on your system.
-	•	Redis: Redis is required to store intercepted tokens. Download and install Redis.
-	•	mitmproxy: mitmproxy is required for network traffic interception. Download mitmproxy.
+## **Installation**
 
- Installation
-git clone https://github.com/yourusername/auth-token-interception.git
-cd auth-token-interception
+### **Prerequisites**
+
+- **Python 3.11**: Ensure Python 3.11 is installed on your system.
+- **Redis**: Redis is required to store intercepted tokens. [Download and install Redis](https://redis.io/download).
+- **mitmproxy**: mitmproxy is required for network traffic interception. [Download mitmproxy](https://mitmproxy.org/).
+
+### **Steps**
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/yourusername/auth-token-interception.git
+   cd auth-token-interception
+   ```
+   
+2. **Set Up a Virtual Environment and Install Python Dependencies**
+
+   ```bash
+   	python3.11 -m venv venv
+	source venv/bin/activate
+	pip install -r requirements.txt
+   ```
+3. **Install mitmproxy and Redis**
+   •	**Mitmproxy**
+   ```bash
+   	pip install mitmproxy
+   ```
+   •	**Redis** for macOS
+   ```bash
+   	brew install redis
+   ```
+   
+## **Usage Guide**
+
+### **Running the Proxy Script**
+
+1. **Start mitmproxy with the Script**
+
+   To start intercepting traffic, run mitmproxy with the provided script:
+
+   ```bash
+   mitmproxy --set console_eventlog_verbosity=debug -s proxy_server.py
+   ```
+
+2. **Configure Proxy in Your Application or Tool**
+Set your application or testing tool (like curl, Postman) to route requests through mitmproxy. By default, mitmproxy listens on localhost:8080. Set your proxy configuration accordingly.
+
+4. **Example Request**
+Send a POST request to the authentication endpoint to see the interception in action:
+
+   ```bash
+   curl -x http://localhost:8080 -X POST \
+  'https://user-auth-crru.onrender.com/oauth/token' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=password&username=testtest123&password=123456&scope=&client_id=string&client_secret=string'
+  ```
+
+After sending this request, mitmproxy will capture the request and response, allowing you to inspect them in real-time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

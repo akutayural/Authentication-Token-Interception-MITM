@@ -1,4 +1,4 @@
-# **Authentication Token Interception Program**
+# **Authentication Token Interception Hack Program for Educational Use**
 
 This project demonstrates how authentication tokens can be intercepted and stored by setting up a proxy to monitor network traffic. It leverages **mitmproxy** to intercept sensitive data from backend requests (like `/oauth/token`), showcasing potential security vulnerabilities that can arise in unprotected networks. The project stores intercepted tokens in **Redis** and is intended solely for educational and security awareness purposes.
 

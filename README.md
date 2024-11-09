@@ -94,23 +94,69 @@ auth-token-interception/
 2. **Configure Proxy in Your Application or Tool**
 Set your application or testing tool (like curl, Postman) to route requests through mitmproxy. By default, mitmproxy listens on localhost:8080. Set your proxy configuration accordingly.
 
-4. **Example Request**
+3. **Example Request**
 Send a POST request to the authentication endpoint to see the interception in action:
 
    ```bash
    curl -x http://localhost:8080 -X POST \
-  'https://user-auth-crru.onrender.com/oauth/token' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'grant_type=password&username=testtest123&password=123456&scope=&client_id=string&client_secret=string'
-  ```
+   'https://user-auth-crru.onrender.com/oauth/token' \
+   -H 'accept: application/json' \
+   -H 'Content-Type: application/x-www-form-urlencoded' \
+   -d 'grant_type=password&username=testtest123&password=123456&scope=&client_id=string&client_secret=string'
+   ```
 
 After sending this request, mitmproxy will capture the request and response, allowing you to inspect them in real-time.
 
+4. **View Intercepted Data**
+You can view intercepted requests and responses in mitmproxy’s interactive console, or if you prefer a web interface, use mitmweb:
+   ```bash
+   mitmweb -s proxy_server.py
+   ```
+This opens a web UI where you can inspect each intercepted request and response.
 
+Stopping the Proxy and Redis
 
+	•	To stop mitmproxy, press Ctrl+C in the terminal where it’s running.
+	•	To stop Redis, use the following commands based on your system:
+ 		   ```bash
+  		    mitmweb -s proxy_server.py
+   		   ```
+## **How It Works**
 
+1. **Intercepting Requests**: The mitmproxy script intercepts requests made to specific endpoints (in this case, `/oauth/token`).
+2. **Capturing the Token**: Upon interception, the script examines the response data for tokens and extracts the `access_token`.
+3. **Storing the Token in Redis**: The token is stored in Redis under a predefined key for future reference.
+4. **Logging Events**: The script logs each step, including successful captures, Redis storage events, and errors for debugging.
 
+---
+
+## **Limitations & Warnings**
+
+- **Educational Use Only**: This project is intended solely for educational purposes. Unauthorized use or deployment of this code against applications or systems you do not own or have permission to test is illegal and unethical.
+- **No Real-World Usage**: Do not deploy this in a production environment. Use in secure, controlled environments only.
+- **Security Risks**: Implementing similar proxy setups in production is not recommended due to the inherent security risks of handling sensitive data like tokens and credentials.
+
+---
+
+## **Live Demo and Blog**
+
+For a comprehensive guide on how this works and detailed explanations, visit the accompanying blog post on Medium: [Link to Medium Blog].
+
+---
+
+## **Contributing**
+
+If you’d like to contribute, feel free to submit a pull request or report issues.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License.
+
+---
+
+This Markdown format provides structure, highlights, and links for easier readability on GitHub. Let me know if you'd like more details in any section or if you're ready to move on to the Medium blog post!
 
 
 

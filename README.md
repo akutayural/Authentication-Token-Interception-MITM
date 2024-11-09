@@ -65,18 +65,18 @@ auth-token-interception/
 2. **Set Up a Virtual Environment and Install Python Dependencies**
 
    ```bash
-   	python3.11 -m venv venv
-	source venv/bin/activate
-	pip install -r requirements.txt
+   python3.11 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
    ```
 3. **Install mitmproxy and Redis**
    •	**Mitmproxy**
    ```bash
-   	pip install mitmproxy
+   pip install mitmproxy
    ```
    •	**Redis** for macOS
    ```bash
-   	brew install redis
+   brew install redis
    ```
    
 ## **Usage Guide**
@@ -116,11 +116,11 @@ This opens a web UI where you can inspect each intercepted request and response.
 
 Stopping the Proxy and Redis
 
-	•	To stop mitmproxy, press Ctrl+C in the terminal where it’s running.
-	•	To stop Redis, use the following commands based on your system:
- 		   ```bash
-  		    mitmweb -s proxy_server.py
-   		   ```
+- To stop mitmproxy, press Ctrl+C in the terminal where it’s running.
+- To stop Redis, use the following commands based on your system:
+```bash
+mitmweb -s proxy_server.py
+ ```
 ## **How It Works**
 
 1. **Intercepting Requests**: The mitmproxy script intercepts requests made to specific endpoints (in this case, `/oauth/token`).

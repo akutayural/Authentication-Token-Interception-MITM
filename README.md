@@ -32,7 +32,7 @@ This project uses **mitmproxy** to intercept HTTP/HTTPS requests sent to a backe
 
 This setup is configured to work with a backend authentication project available on GitHub. This backend project provides basic user authentication functionalities that can be used to simulate login requests and see how tokens are intercepted.
 
-> **Backend Project Repository**: [User Authentication API on GitHub]([https://github.com/yourusername/user-auth-crru](https://github.com/akutayural/async-fastapi-base-setup))
+**Backend Project Repository**: [User Authentication API on GitHub]([https://github.com/yourusername/user-auth-crru](https://github.com/akutayural/async-fastapi-base-setup))
 
 To fully experience this demonstration, set up the backend project and run it locally or on a server, then follow the steps below to intercept authentication tokens.
 [**Live Swagger API**](https://user-auth-crru.onrender.com/docs#/)

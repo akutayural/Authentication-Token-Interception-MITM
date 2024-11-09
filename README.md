@@ -156,7 +156,6 @@ This project is licensed under the MIT License.
 
 ---
 
-This Markdown format provides structure, highlights, and links for easier readability on GitHub. Let me know if you'd like more details in any section or if you're ready to move on to the Medium blog post!
 
 
 

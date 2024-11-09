@@ -123,10 +123,17 @@ mitmweb -s proxy_server.py
  ```
 ## **How It Works**
 
-1. **Intercepting Requests**: The mitmproxy script intercepts requests made to specific endpoints (in this case, `/oauth/token`).
-2. **Capturing the Token**: Upon interception, the script examines the response data for tokens and extracts the `access_token`.
-3. **Storing the Token in Redis**: The token is stored in Redis under a predefined key for future reference.
-4. **Logging Events**: The script logs each step, including successful captures, Redis storage events, and errors for debugging.
+This project demonstrates the fundamental techniques behind a **Man-in-the-Middle (MITM) attack**, showing how attackers could intercept and steal authentication tokens from web or mobile applications if security practices are neglected. The following steps explain the process:
+
+1. **Intercepting Requests**: The mitmproxy script is set up to capture network traffic, specifically intercepting requests made to sensitive endpoints such as `/oauth/token`. This mimics the behavior of a potential attacker monitoring network activity.
+   
+2. **Capturing the Token**: Upon intercepting these requests, the script inspects the response data for critical information like `access_token`. By accessing these tokens, unauthorized individuals could potentially impersonate legitimate users.
+
+3. **Storing the Token in Redis**: Once captured, the token is stored in a Redis database with a predefined key. This storage enables attackers to access and potentially reuse the token, allowing unauthorized access to the backend.
+
+4. **Logging Events**: To keep track of the interception process, the script logs every major action, including successful captures, Redis storage events, and any errors encountered. This logging can be used by security professionals for debugging and audit purposes.
+
+This setup illustrates how, with minimal tools and improper security, application tokens can be exposed and stolen on both mobile and web platforms.
 
 ---
 

@@ -38,13 +38,17 @@ class InterceptBackendAuthToken:
                     redis_key = "backend_access_token"
                     self.redis_client.set(redis_key, access_token)
                     logger.info(f"Access token stored in Redis with key: {redis_key}")
+                    return True
                 else:
                     logger.error("Access token not found in the response.")
+                    return False
 
             except json.JSONDecodeError as e:
                 logger.error(f"Error decoding JSON from response: {e}")
+                return False
             except Exception as e:
                 logger.error(f"Error processing the backend server response: {e}")
+                return False
 
     def __del__(self):
         try:

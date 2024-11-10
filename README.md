@@ -158,7 +158,7 @@ This setup illustrates how, with minimal tools and improper security, applicatio
 
 ## **Live Demo and Blog**
 
-For a comprehensive guide on how this works and detailed explanations, visit the accompanying blog post on Medium: [Link to Medium Blog].
+For a comprehensive guide on how this works and detailed explanations, visit the accompanying blog post on Medium: [Link to Medium Blog](https://medium.com/@ahmetkutayural/how-hackers-steal-your-authentication-tokens-using-mitm-and-protect-against-it-step-by-step-e3401d42a181).
 
 ---
 
